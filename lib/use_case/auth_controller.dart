@@ -5,6 +5,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../repository/auth_repository.dart';
 
+final authControllerProvider = StateNotifierProvider<AuthController, User?>(
+  (ref) => AuthController(ref)..appStarted(),
+);
+
 class AuthController extends StateNotifier<User?> {
   final Ref _read;
   StreamSubscription<User?>? _authStateChangesSubscription;
