@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195217092753",
+    "project_id": "firebase-and-authapp",
+    "storage_bucket": "firebase-and-authapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195217092753:android:f2f84623e77ae40081cf30",
+        "android_client_info": {
+          "package_name": "com.example.flutter_todo_and_auth_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195217092753-j67qqsqmkjpc3fas955vdpm3jk9b7igo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTBIPo4OPta0-BB75BP85jpamx82vePc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195217092753-j67qqsqmkjpc3fas955vdpm3jk9b7igo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

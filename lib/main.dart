@@ -6,10 +6,12 @@ import 'extensions/custom_exception.dart';
 import 'use_case/auth_controller.dart';
 import 'use_case/item_list_controller.dart';
 
-void main() {
-  runApp(
-    ProviderScope(child: MyApp()),
-  );
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
