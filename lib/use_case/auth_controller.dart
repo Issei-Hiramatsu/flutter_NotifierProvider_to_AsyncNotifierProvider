@@ -5,12 +5,19 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../repository/auth_repository.dart';
 
+final testAuthControllerProvider =
+    StateNotifierProvider((ref) => (AuthController(ref)));
+
+final authControllerProvider = StateNotifierProvider<AuthController, User?>(
+  (ref) => AuthController(ref)..appStarted(),
+);
+
 class AuthController extends StateNotifier<User?> {
-  final Ref _read;
+  final Ref ref;
   StreamSubscription<User?>? _authStateChangesSubscription;
-  AuthController(this._read) : super(null) {
+  AuthController(this.ref) : super(null) {
     _authStateChangesSubscription?.cancel();
-    _authStateChangesSubscription = _read
+    _authStateChangesSubscription = ref
         .read(authRepositoryProvider)
         .authStateChanges
         .listen((user) => state = user);
@@ -23,13 +30,13 @@ class AuthController extends StateNotifier<User?> {
   }
 
   void appStarted() async {
-    final user = _read.read(authRepositoryProvider).getCurrentUser();
+    final user = ref.read(authRepositoryProvider).getCurrentUser();
     if (user == null) {
-      await _read.read(authRepositoryProvider).signInAnonymously();
+      await ref.read(authRepositoryProvider).signInAnonymously();
     }
   }
 
   void signOut() async {
-    await _read.read(authRepositoryProvider).signOut();
+    await ref.read(authRepositoryProvider).signOut();
   }
 }
